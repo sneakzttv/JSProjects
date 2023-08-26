@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Functions Exercise-->
+  </head>
+  <body>
+    <script>
+      // Declaring a function
+      function function1() {
+        console.log('hello');
+        console.log(2 + 2);
+      }
+
+      // Using a function
+      function1();
+
+      // Declaring a function that takes a parameter
+      // = sets a default value to use if it isn't defined when called
+      function calculateTax(cost, taxPercent = 0.1) {
+        console.log(cost * taxPercent);
+      }
+      // Passing a value or argument into the function
+      calculateTax(2000, 0.2);
+      calculateTax(5000);
+    </script>
+  </body>
+</html>
