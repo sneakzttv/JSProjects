@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Rock paper scissors Exercise-->
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    
+    <button onclick="
+      // Fields/variables
+      // Math.random generates a random number between 0 and less than 1
+      const randomNumberR = Math.random()
+      let computerMoveR = '';
+      let resultR = '';
+
+      // Computer picks move via random number generation
+      // Less than as opposes to less than or equal to so things dont overlap
+      if (randomNumberR > 0 && randomNumberR < 1 / 3) {
+        computerMoveR = 'rock';
+      } else if (randomNumberR > 0 && randomNumberR < 2 / 3) {
+        computerMoveR = 'paper';
+      } else if (randomNumberR > 0 && randomNumberR < 1) {
+        computerMoveR = 'scissors';
+      }
+
+      // Match functionality
+      if (computerMoveR === 'rock') {
+        resultR = 'tie';
+      } else if (computerMoveR === 'paper') {
+        resultR = 'you lose';
+      } else if (computerMoveR === 'scissors') {
+        resultR = 'you win';
+      }
+
+      // Display result in pop up
+      alert(`You picked rock. Computer picked ${computerMoveR}. ${resultR}`);
+    ">Rock</button>
+
+      <button onclick="
+      // Fields/variables
+      // Math.random generates a random number between 0 and less than 1
+      const randomNumberP = Math.random()
+      let computerMoveP = '';
+      let resultP = '';
+
+      // Computer picks move via random number generation
+      // Less than as opposes to less than or equal to so things dont overlap
+      if (randomNumberP > 0 && randomNumberP < 1 / 3) {
+        computerMoveP = 'rock';
+      } else if (randomNumberP > 0 && randomNumberP < 2 / 3) {
+        computerMoveP = 'paper';
+      } else if (randomNumberP > 0 && randomNumberP < 1) {
+        computerMoveP = 'scissors';
+      }
+
+      // Match functionality
+      if (computerMoveP === 'rock') {
+        resultP = 'you win';
+      } else if (computerMoveP === 'paper') {
+        resultP = 'tie';
+      } else if (computerMoveP === 'scissors') {
+        resultP = 'you lose';
+      }
+
+      // Display result in pop up
+      alert(`You picked paper. Computer picked ${computerMoveP}. ${resultP}`);
+      ">Paper</button>
+
+      <button onclick="
+      // Fields/variables
+      // Math.random generates a random number between 0 and less than 1
+      const randomNumberS = Math.random()
+      let computerMoveS = '';
+      let resultS = '';
+
+      // Computer picks move via random number generation
+      // Less than as opposes to less than or equal to so things dont overlap
+      if (randomNumberS > 0 && randomNumberS < 1 / 3) {
+        computerMoveS = 'rock';
+      } else if (randomNumberS > 0 && randomNumberS < 2 / 3) {
+        computerMoveS = 'paper';
+      } else if (randomNumberS > 0 && randomNumberS < 1) {
+        computerMoveS = 'scissors';
+      }
+
+      // Match functionality
+      if (computerMoveS === 'rock') {
+        resultS = 'you lose';
+      } else if (computerMoveS === 'paper') {
+        resultS = 'you win';
+      } else if (computerMoveS === 'scissors') {
+        resultS = 'tie';
+      }
+
+      // Display result in pop up
+      alert(`You picked scissors. Computer picked ${computerMoveS}. ${resultS}`);
+      ">Scissors</button>
+    
+    <script>
+      
+    </script>
+  </body>
+</html>

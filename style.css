@@ -1,0 +1,14 @@
+/*
+    This is how to comment in css
+*/
+.red-button {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.green-button {
+    background-color: green;
+    color: white;
+    border: none;
+}

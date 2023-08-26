@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Booleans Exercise-->
+  </head>
+  <body>
+    <script>
+      // Checking types
+      console.log(typeof 'true'); // string
+      console.log(typeof true); // boolean
+      
+      // Returns a boolean value based on result
+      console.log(3 < 5); // true
+      console.log(3 > 5); // false
+      
+      // Comparing values
+      console.log(5 == '5.00'); // true, converts both numbers but should be avoided as it's error prone, alternate: !=
+      console.log(5 === '5.00'); // false as its checking types also i.e absolute, better to use this, alternate: !==
+      
+      // comparison operators i.e < or > have a lower priority than math operators
+      console.log(3 > 5 - 5); // true
+
+      // If statements can run on 1 line of code
+      if (true) console.log('1 line true');
+
+      // If value is true, run code in the true branch, if false, run else branch
+      if (true) {
+        console.log('hello');
+      } else {
+        console.log('else');
+      }
+      
+      // If else statments
+      // Number check to see if someone can drive based on age
+      const age = 15;
+      if (age >= 16) {
+        console.log('you can drive');
+        console.log('congratz');
+      } else if (age >= 14) {
+        console.log('Almost there')
+      } else {
+        console.log('you cannot drive')
+      }
+
+      // Logical operators i.e && or || or ! have a lower pirority than math and comparison operators
+      console.log(true && true); // returns true
+      console.log(true && false); // returns false
+      console.log(0.22 >= 0 && 0.2 < 1 / 3); // returns true
+      console.log(true || false); // returns true
+      console.log(!true); // returns false, flips it etc
+
+      // --Truthy and falsy statments-- 
+      // Falsy values are (false, 0, '', Nan, undefined, null) else truthy
+      
+      // Truthy
+      if (5) {
+        console.log('truthy'); // values behaves like true
+      }
+
+      // Falsy
+      if (0) {
+        console.log('falsy'); // values behaves like false
+      }
+
+      // Variable usage as shortcuts
+      const cartQuantity1 = 5;
+
+      if (cartQuantity1) {
+        console.log('cart has products');
+      }
+
+      const cartQuantity2 = 0;
+
+      if (cartQuantity2) {
+        console.log('cart has no products');
+      }
+
+      // --Not operator-- usage
+      console.log(!0); // returns true
+      console.log(0); // returns false
+
+      // --NaN-- (Not a number)
+      console.log('text / 5'); // returns nan
+
+      // Undefined
+      let variable1;
+      console.log(variable1); // returns undefined
+
+      // --Null--
+
+      // --Ternary operator-- (similar to if ? or else :) Can be saved as a variable
+      // True
+      const result1 = true ? 'truthy' : 'falsy'
+      console.log(result) // returns truthy
+      
+      // False
+      const result2 = 0 ? 'truthy' : 'falsy'
+      console.log(result) // returns falsy
+
+      // --Guard operator--
+      false && console.log('hello'); // && operator stops early and short circuits (short-circuit evaluation)
+      // Can be saved as a variable
+
+      // Stops because falsy, result is the first value
+      const message1 = false && 'hello';
+      console.log(message);
+      
+      // Passes because truthy result is the second value
+      const message2 = 5 && 'hello';
+      console.log(message);
+
+      // --Default Operator--
+      const currency1 = 'EUR' || 'USD'; // Returns true if EUR was chosen
+      const currency2 = undefined || 'USD'; // Returns false if nothing was chosen and chooses USD
+
+    </script>
+  </body>
+</html>
