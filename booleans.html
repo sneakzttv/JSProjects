@@ -91,6 +91,18 @@
       console.log(variable1); // returns undefined
 
       // --Null--
+      // Used when we intentionally want something to be empty to make use of things like default operators
+      // Function uses default value
+      function func (parameter = 'default') {
+        console.log(parameter);
+      }
+
+      // if default it will use a default value
+      func(); => 'default'
+      func(undefined); => 'default'
+
+      // if null, it will use null
+      func(null); => null
 
       // --Ternary operator-- (similar to if ? or else :) Can be saved as a variable
       // True

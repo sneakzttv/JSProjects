@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Objects Exercise-->
+  </head>
+  <body>
+    <script>
+      // Objects let us group values and display/use them together
+      const product = {
+        name: 'socks',
+        price: 1090
+      };
+
+      // Checking the variable type
+      console.log(typeof product);
+
+      // Acessing the object
+      console.log(product);
+
+      // Using a property within an object with dot notation
+      console.log(product.name);
+      console.log(product.price);
+
+      // Changing a property value by dot notation
+      product.name = 'cotton socks';
+      console.log(product.name);
+
+      // Adding a new property
+      product.newProperty = true;
+      console.log(product);
+
+      // Removing a value
+      delete product.newProperty;
+      console.log(product);
+
+      // --Additional object access-- 
+      // Bracket notation used when accessing property names with hyphens, varaibles or calculations i.e delivery-time
+      // Nested objects
+      // Functions
+      const product2 = {
+        name: 'shirt',
+        ['delivery-time']: '1 day',
+        // Brackets are optional when strings are being used
+        'delivery-time': '1 day',
+        // Nested objects
+        rating: {
+          stars: 4.5,
+          count: 87
+        },
+        // Functions
+        fun: function function1() {
+          console.log('function inside object');
+        }
+      };
+      console.log(product2);
+
+      // Acessing object via string
+      console.log(product2['name']);
+
+      // Acessing object property with hyphens
+      console.log(product2['delivery-time']);
+
+      // Acessing nested object
+      console.log(product2.rating.stars);
+
+      // Acessing object function or method
+      product2.fun();
+
+      // Built in objects are objects provided by the langauge i.e math.rand, console.log, JSON, localStorage
+      
+      // --JSON--
+      // Converting from js object to JSON
+      console.log(typeof JSON.stringify(product2));
+      console.log(JSON.stringify(product2));
+
+      // Converting from JSON to js object
+      const jsonString = JSON.stringify(product2);
+      console.log(JSON.parse(jsonString));
+
+      // --Local storage--
+      // Retreiving score values from local storage (only supports strings)
+      console.log(JSON.parse(localStorage.getItem('product2')));
+
+      // Saving to localStorage to keep scores saved between session (only supports strings)
+      localStorage.setItem('product2', JSON.stringify(product2));
+
+      // --Auto boxing-- (wraps something into an object and provides additonal methods) does not work with null and undefined
+      // Checks additional information regarding properties
+      console.log('hello'.length);
+
+      // converts property to uppercase
+      console.log('hello'.toUpperCase());
+
+      // Objects are references, created in memory, object gets a reference to said memory
+      const object1 = {
+        message: 'hello'
+      };
+
+      // Referencing another object via copy by reference (keeps data the same in object1)
+      const object2 = object1;
+
+      // Const still allows you to change values inside an object
+      object1.message = 'Good Job!';
+      console.log(object1);
+      console.log(object2);
+
+      // Comparing objects
+      const object3 = {
+        message: 'Good Job!'
+      };
+      console.log(object3 === object1); // returns false as it's comparing references in memeory and not values
+      console.log(object2 === object1); // returns true as it's comparing references in memory and not values
+      console.log(object3.message === object2.message); // returns true as it's comparing values
+
+      const object4 = {
+        message: 'Good Job!',
+        price: '799'
+      };
+      // --Shortcuts--
+      // Destructuring
+      // const message = object4.message;
+      const { message, price } = object4;
+      console.log(message);
+      console.log(price);
+      
+      // Shorthand & shorthand method
+      const object5 = {
+        //message: message,
+        message,
+        // method: function function1() {
+        //   console.log('method');
+        // }
+        method() {
+          console.log('method');
+        }
+      };
+      console.log(object5);
+      object5.method();
+    </script>
+  </body>
+</html>
