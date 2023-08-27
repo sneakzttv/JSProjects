@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Dom (Document object) Exercise-->
+  </head>
+  <body>
+    <!--Initial button to see changes with dom-->
+    <button>Hello</button>
+    <script>
+      // Dom handles the websites model (content)
+
+      // Changes title
+      console.log(document.title);
+      document.title = 'changed';
+
+      // Gets the body html element (combines js and html, gives js control of the webpage)
+      console.log(document.body);
+
+      // Converts html to JS element
+      console.log(typeof document.body); // returns object
+
+      // Controls all the html inside the body
+      console.log(document.body.innerHTML);
+
+      // Replaces all the html to the text changed
+      document.body.innerHTML = 'Changed';
+
+      // Replaces all the html to buttons
+      document.body.innerHTML = '<button>Good Job!</button> <button class ="js-button">Good Job!</button>';
+
+      // Document query selector lets us get an element and put it into javascript
+      // Can be used for the initial hello button above also
+      console.log(document.querySelector('button'));
+
+      // Can be used for the body
+      console.log(document.querySelector('body'));
+
+      // Can be used to get the inner html of the initial hello button above also
+      console.log(document.querySelector('button').innerHTML);
+
+      // Can be used to change the inner html of the initial hello button above also (includes organization)
+      document.querySelector('button')
+        .innerHTML = 'Changed';
+
+      // Selecting something by class and assigning it a variable (class selector)
+      console.log(document.querySelector('.js-button'));
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+    </script>
+  </body>
+</html>

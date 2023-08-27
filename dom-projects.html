@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Dom (Document object) Projects Exercise-->
+    <!--Dom = webpage, Window = browser-->
+    <!--window.document is the same as document, window can be used to access things like popups, metamask or console-->
+    <!--window.console, window.alert, window.ethereum, js autoamatically adds the word window as it's a built in object-->
+  </head>
+  <body>
+    <!--Youtube Project-->
+    <p>YouTube Subscribe Button</p>
+    <button onclick="
+    subscribe();
+    " class="js-subscribe-button">
+    Subscribe</button>
+
+    <!--Rock Paper Scissors Project-->
+    <p>Rock Paper Scissors</p>
+    <a href="./final-rock-paper-scissors.html">Click here</a>
+
+    <!--Amazon Project-->
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order"
+    class="js-cost-input" onkeydown="
+      handleCostKeyDown(event);
+    ">
+
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+      // Youtube
+      function subscribe() {
+        const buttonElement = document.querySelector('.js-subscribe-button');
+        // InnerText can be used instead of innerHTML just to get text
+        if (buttonElement.innerText === 'Subscribe') {
+          buttonElement.innerText = 'Subscribed';
+        } else {
+          buttonElement.innerText = 'Subscribe';
+        }
+      };
+
+      // Amazon
+      function handleCostKeyDown(event) {
+        // Checks which key, console.log event or event.key can be used
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      };
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        // Gets the text inside a textbox
+        // Convert string to number to avoid type coercion, number to string can be done with String()
+        let cost = Number(inputElement.value);
+        if (cost < 40) {
+          cost = cost + 10;
+        }
+        document.querySelector('.js-total-cost')
+          .innerHTML = `$${cost}`;
+      };
+    </script>
+  </body>
+</html>

@@ -25,6 +25,10 @@
       playGame('scissors');
       ">Scissors</button>
 
+      <p class="js-result"></p>
+      <p class="js-moves"></p>
+      <p class="js-score"></p>
+
       <button onclick="
       // Resets score object
       resetScore();
@@ -40,8 +44,11 @@
           losses: 0,
           ties: 0
       };
+      
+      // Update score
+      updateScoreElement();
 
-      // Setting a default value if no JSON is present in local storage
+      // Setting a default value if no JSON is present in local storage (default operator above is best practice)
       
       // Check if score is null 
       // if (score === null) {
@@ -70,47 +77,52 @@
         // Scissors
         if (playerMove === 'scissors') {
           if (computerMove === 'rock') {
-            result = 'you lose';
+            result = 'You lose';
           } else if (computerMove === 'paper') {
-            result = 'you win';
+            result = 'You win';
           } else if (computerMove === 'scissors') {
-            result = 'tie';
+            result = 'Tie';
           }
         // Paper
         } else if (playerMove === 'paper') {
           if (computerMove === 'rock') {
-            result = 'you win';
+            result = 'You win';
           } else if (computerMove === 'paper') {
-            result = 'tie';
+            result = 'Tie';
           } else if (computerMove === 'scissors') {
-            result = 'you lose';
+            result = 'You lose';
           }
         // Rock
         } else if (playerMove === 'rock') {
           if (computerMove === 'rock') {
-            result = 'tie';
+            result = 'Tie';
           } else if (computerMove === 'paper') {
-            result = 'you lose';
+            result = 'You lose';
           } else if (computerMove === 'scissors') {
-            result = 'you win';
+            result = 'You win';
           }
         };
         
         // Update the score object
-        if (result === 'you win') {
+        if (result === 'You win') {
           score.wins ++;
-        } else if (result === 'you lose') {
+        } else if (result === 'You lose') {
           score.losses ++;
-        } else if (result === 'tie') {
+        } else if (result === 'Tie') {
           score.ties ++;
         };
 
         // Saving to localStorage to keep scores saved between session (only supports strings)
         localStorage.setItem('score', JSON.stringify(score));
 
-        // Display result in pop up, score object on a new line (indent removed to fix line display)
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+        // Update score
+        updateScoreElement();
+
+        // Display result
+        document.querySelector('.js-result')
+          .innerHTML = result;
+        document.querySelector('.js-moves')
+          .innerHTML =`You picked ${playerMove}. Computer picked ${computerMove}.`;
       };
       
       function pickComputerMove() {
@@ -132,6 +144,12 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
         return computerMove;
       };
 
+      // Updates the score element
+      function updateScoreElement() {
+        document.querySelector('.js-score')
+          .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      }
+
       // Resets the score object
       function resetScore() {
         score.wins = 0;
@@ -139,6 +157,7 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
         score.ties = 0;
         // Removing localStorage score
         localStorage.removeItem('score');
+        updateScoreElement();
       };
     </script>
   </body>
