@@ -1,0 +1,43 @@
+/*
+    This is how to comment in css
+*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.subscribe-button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.is-subscribed {
+  background-color: rgb(240, 240, 240);
+  color: black;
+}
+
+.cost-input {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.cost-button {
+  font-size: 15px;
+  padding: 12px 15px;
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+.rock-paper-scissors-text {
+  margin-top: 30px;
+}
