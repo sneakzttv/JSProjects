@@ -9,7 +9,40 @@
 </head>
 <body>
   <script>
+    // Setting an array
+    const myArray1 = [10, 20, 30];
+    const myArray2 = [
+      10,
+      20,
+      30
+    ];
+    console.log(myArray1);
     
+    // Accessing a value
+    console.log(myArray1[0]);
+
+    // Changing an array value
+    myArray1[0] = 30;
+    console.log(myArray1);
+
+    // Arrays can take any value
+    const myArray3 = [1, 'hello', { name: 'socks'}, myArray1];
+
+    // Array object checking
+    console.log(typeof [1, 2]); // returns an object (arrays are just a special type of object)
+    Array.isArray(myArray1); // returns true if is actually an array
+
+    // Array length
+    console.log(myArray3.length); // returns 4 as there are 4 items in the array
+    
+    // Adding a value to the end of an array
+    myArray3.push(100);
+    console.log(myArray3);
+
+    // Removing a value from an array (index to start at, number of values to remove)
+    myArray3.splice(4, 1); // removes 1 value starting at index value 4
+    console.log(myArray3);
+
   </script>
 </body>
 </html>
