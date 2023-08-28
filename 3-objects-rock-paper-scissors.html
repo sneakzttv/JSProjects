@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!-- Rock paper scissors Exercise-->
   </head>
   <body>
@@ -24,8 +24,42 @@
       // Call Match functionality
       playGame('scissors');
       ">Scissors</button>
+
+      <button onclick="
+      // Resets score object
+      resetScore();
+      ">Reset Score</button>
     
     <script>
+      // Retreiving score values from local storage (only supports strings)
+      console.log(JSON.parse(localStorage.getItem('score')));
+      
+      // Setting score object from saved data, setting default value if not present
+      let score = JSON.parse(localStorage.getItem('score')) || {
+          wins: 0,
+          losses: 0,
+          ties: 0
+      };
+
+      // Setting a default value if no JSON is present in local storage
+      
+      // Check if score is null 
+      // if (score === null) {
+      //   score = {
+      //     wins: 0,
+      //     losses: 0,
+      //     ties: 0
+      //   };
+      // };
+      
+      // // !score can also be used as it checks if its null (default operator above is best practice)
+      // if (!score) {
+      //   score = {
+      //     wins: 0,
+      //     losses: 0,
+      //     ties: 0
+      //   };
+      // };
 
       function playGame(playerMove) {
         // Variables
@@ -60,10 +94,24 @@
           } else if (computerMove === 'scissors') {
             result = 'you win';
           }
-        } 
-        // Display result in pop up
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
-      }
+        };
+        
+        // Update the score object
+        if (result === 'you win') {
+          score.wins ++;
+        } else if (result === 'you lose') {
+          score.losses ++;
+        } else if (result === 'tie') {
+          score.ties ++;
+        };
+
+        // Saving to localStorage to keep scores saved between session (only supports strings)
+        localStorage.setItem('score', JSON.stringify(score));
+
+        // Display result in pop up, score object on a new line (indent removed to fix line display)
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+      };
       
       function pickComputerMove() {
         // Variables
@@ -79,10 +127,19 @@
           computerMove = 'paper';
         } else if (randomNumber > 0 && randomNumber < 1) {
           computerMove = 'scissors';
-        }
+        };
         // optional to return a value, variable or calculation, blank return will return undefined. Ends the function immediately.
         return computerMove;
-      }
+      };
+
+      // Resets the score object
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        // Removing localStorage score
+        localStorage.removeItem('score');
+      };
     </script>
   </body>
 </html>
