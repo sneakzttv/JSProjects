@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do List</title>
-  <link rel="stylesheet" href="styles/rock-paper-scissors-style.css">
+  <link rel="stylesheet" href="styles/todo-style.css">
     <!-- To Do List Exercise-->
 </head>
 <body>
   <p>ToDo List</p>
-  <input placeholder="ToDo name"
-    class="js-name-input">
-  <button onclick="
-  addTodo();
-  ">Add</button>
 
-  <div class="js-todo-list"></div>
+  <div class="todo-input-grid">
+    <input placeholder="ToDo name"
+    class="js-name-input">
+
+    <input type="date" placeholder="yyyy-mm-dd"
+    class="js-date-input">
+
+    <button onclick="
+    addTodo();
+    " class="add-button">Add</button>
+  </div>
+
+  <div class="js-todo-list todo-grid"></div>
 
   <script src="scripts/to-do-list.js"></script>
 </body>
