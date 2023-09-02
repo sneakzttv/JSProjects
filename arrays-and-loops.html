@@ -99,6 +99,72 @@
     };
     console.log(numsDoubled);
 
+    //------Difference between array refrences and values------
+    
+    // References by example
+    const array4 = [1, 2 ,3];
+    const array5 = array4;
+    array4.push(4);
+    console.log(array4); // Outputs 1, 2, 3, 4
+    console.log(array5); // Outputs 1, 2, 3, 4
+    
+    // Using slice to store values
+    const array6 = [1, 2 ,3];
+    const array7 = array6.slice();
+    array6.push(4);
+    console.log(array6); // Outputs 1, 2, 3, 4
+    console.log(array7); // Outputs 1, 2, 3
+
+    // Destructuring
+    //const array8 = [1, 2, 3];
+    const [firstValue, secondValue] = [1, 2 ,3];
+    console.log(firstValue);
+    console.log(secondValue);
+
+    // Break and continue
+    for (let i = 1; i <= 10; i++) {
+      // % checks if something is divisiable by something, i.e 3 and 6 are divisible by 3 with no remainder (here we skip 3 and 6)
+      if (i % 3 === 0) {
+        // Continue will skip the current iteration and continue on
+        continue;
+      }
+      console.log(i);
+      if (i === 8) {
+        // Break stops a loop
+        break;
+      }
+    }
+
+    // Continue in a while loop, counting 1-10
+    let x = 1;
+
+    while (x <= 10) {
+      if (x % 3 === 0)
+      {
+        // Incrimenting here stops an infinite loop, needs to be done manually
+        x++
+        continue;
+      }
+      console.log(x);
+      x++
+    }
+
+    // Using arrays in functions and breaking out of them with returns
+    function doubleArray(nums) {
+      const numsArrDoubled = [];
+
+      for (let i = 0; i < nums.legth; i++) {
+        const num = nums[i];
+        // if (num === 0) {
+        //   // end the function early at 0
+        //   return numsArrDoubled;
+        // }
+        numsArrDoubled.push(num * 2);
+      }
+      return numsArrDoubled;
+    }
+    console.log(doubleArray([1, 1, 3]));
+    console.log(doubleArray([2, 2, 5, 0, 5]));
   </script>
 </body>
 </html>
