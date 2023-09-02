@@ -13,10 +13,12 @@ body {
   grid-template-columns: 200px 150px 100px;
   column-gap: 10px;
   row-gap: 10px;
+  align-items: center;
 }
 
 .todo-input-grid {
   margin-bottom: 10px;
+  align-items: stretch;
 }
 
 .title {
@@ -24,10 +26,11 @@ body {
   font-weight: bold;
 }
 
-.js-name-input,
-.js-date-input {
+.name-input,
+.date-input {
   border: none;
   font-size: 15px;
+  padding: 6px;
   cursor: text;
 }
 
@@ -36,6 +39,8 @@ body {
   border: none;
   color: white;
   font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   cursor: pointer;
 }
 
@@ -44,5 +49,7 @@ body {
   border: none;
   color: white;
   font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   cursor: pointer;
 }
