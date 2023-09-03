@@ -15,10 +15,9 @@ function renderTodoList() {
     const html = `
       <div>${name}</div>
       <div>${dueDate}</div>
-      <button onClick="
-        todoList.splice(${index}, 1);
-        renderTodoList();
-      " class="delete-button">Delete</button>
+      <button class="delete-button js-todo-delete-button">
+      Delete
+      </button>
     `;
     todoListHTML += html;
   });
@@ -41,7 +40,22 @@ function renderTodoList() {
 
   document.querySelector('.js-todo-list')
     .innerHTML = todoListHTML;
+
+    // If genearting html, event listeneers need to be added after button creation like so incase of the delete button
+    // All gets all the elements on the page with the class and adds an event listener with a for reach
+    document.querySelectorAll('.js-todo-delete-button')
+      .forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
+          todoList.splice(index, 1);
+          renderTodoList();
+        });
+      });
 };
+
+document.querySelector('.js-add-todo-button')
+  .addEventListener('click', () => {
+    addTodo();
+  });
 
 function addTodo() {
   const inputElement = document.querySelector('.js-name-input');
