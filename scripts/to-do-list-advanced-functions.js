@@ -8,7 +8,7 @@ function renderTodoList() {
 
   // Using for each instead of the method below
 
-  todoList.forEach(function(todoObject, index) {
+  todoList.forEach((todoObject, index) => {
     // Getting multiple variables from an object (Destructuring)
     const { name, dueDate } = todoObject;
     // Creating buttons and sorting them into grids
