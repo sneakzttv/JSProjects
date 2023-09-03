@@ -41,7 +41,7 @@ function renderTodoList() {
   document.querySelector('.js-todo-list')
     .innerHTML = todoListHTML;
 
-    // If genearting html, event listeneers need to be added after button creation like so incase of the delete button
+    // If genearting html, event listeners need to be added after button creation like so i.e with the delete button as it's generated
     // All gets all the elements on the page with the class and adds an event listener with a for reach
     document.querySelectorAll('.js-todo-delete-button')
       .forEach((deleteButton, index) => {
