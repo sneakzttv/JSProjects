@@ -42,7 +42,8 @@ function renderTodoList() {
     .innerHTML = todoListHTML;
 
     // If genearting html, event listeners need to be added after button creation like so i.e with the delete button as it's generated
-    // All gets all the elements on the page with the class and adds an event listener with a for reach
+    // All gets all the elements on the page with the class and adds an event listener with a for each
+    // Closure, i.e a function always having access to something within scope, i.e index below
     document.querySelectorAll('.js-todo-delete-button')
       .forEach((deleteButton, index) => {
         deleteButton.addEventListener('click', () => {
