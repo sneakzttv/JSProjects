@@ -6,8 +6,9 @@ renderTodoList();
 function renderTodoList() {
   let todoListHTML = '';
 
-  for (let i = 0; i < todoList.length; i++) {
-    const todoObject = todoList[i];
+  // Using for each instead of the method below
+
+  todoList.forEach(function(todoObject, index) {
     // Getting multiple variables from an object (Destructuring)
     const { name, dueDate } = todoObject;
     // Creating buttons and sorting them into grids
@@ -15,12 +16,28 @@ function renderTodoList() {
       <div>${name}</div>
       <div>${dueDate}</div>
       <button onClick="
-        todoList.splice(${i}, 1);
+        todoList.splice(${index}, 1);
         renderTodoList();
       " class="delete-button">Delete</button>
     `;
     todoListHTML += html;
-  };
+  });
+
+  // for (let i = 0; i < todoList.length; i++) {
+  //   const todoObject = todoList[i];
+  //   // Getting multiple variables from an object (Destructuring)
+  //   const { name, dueDate } = todoObject;
+  //   // Creating buttons and sorting them into grids
+  //   const html = `
+  //     <div>${name}</div>
+  //     <div>${dueDate}</div>
+  //     <button onClick="
+  //       todoList.splice(${i}, 1);
+  //       renderTodoList();
+  //     " class="delete-button">Delete</button>
+  //   `;
+  //   todoListHTML += html;
+  // };
 
   document.querySelector('.js-todo-list')
     .innerHTML = todoListHTML;
