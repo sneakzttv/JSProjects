@@ -195,6 +195,55 @@
       console.log(index);
       console.log(value);
     });
+
+    // -----Arrays filter and map-------
+
+    // Filter
+    // Filter works similar to for each
+    // Takes value, saves it and runs function, inner function returns a value
+    // Creates a new array, if inner value true, puts value in the array else if false it doesn't
+
+    // Puts values into array
+    console.log([1, -3, 5].filter((value, index) => {
+      return true;
+    }));
+
+    // Doesn't put values into array
+    console.log([1, -3, 5].filter((value, index) => {
+      return false;
+    }));
+
+    // Puts only positive values into array
+    console.log([1, -3, 5].filter((value, index) => {
+      // if (value >=0)
+      // {
+      //   return true
+      // } else {
+      //   return false;
+      // }
+      // OR shorthand
+      return value >= 0;
+    }));
+
+    // Map
+    // Works like foreach and filter
+    // Creates a new array, whatever we return will be added to the array, used for transforming arrays
+    console.log([1, 1, 3].map((value, index) => {
+      return 10; // returns 10, 10, 10
+    }));
+
+    // Adding
+    console.log([1, 1, 3].map((value, index) => {
+      return value + 10; // returns 11, 11, 13
+    }));
+
+    // Doubling
+    console.log([1, 1, 3].map((value, index) => {
+      return value * 2; // returns 2, 2, 6
+    }));
+
+    // Shorthand return and brackets not needed as it's on 1 line
+    console.log([1, 1, 3].map(value => value * 2)); // returns 11, 11, 13));
   </script>
 </body>
 </html>
