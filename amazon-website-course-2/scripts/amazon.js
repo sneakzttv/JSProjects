@@ -60,29 +60,45 @@ products.forEach((product) => {
 // Append html with the generated HTML above
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
+  
 // Find all cart buttons and allow adding to cart interactivity using data attributes via event listener
-  document.querySelectorAll('.js-add-to-cart')
-    .forEach((button) => {
-      button.addEventListener('click', () => {
-        // Product name via data attraibute
-        const productId = button.dataset.productId;
-        // Matching item var
-        let matchingItem;
-        // Loop through each item in the cart and check if we have a matching item
-        cart.forEach((item) => {
-          if (productId === item.productId) {
-            matchingItem = item;
-          }
-        });
-        // Increase matching item quantity else add it to the cart
-        if (matchingItem) {
-          matchingItem.quantity ++;
-        } else {
-          cart.push({
-            productId: productId,
-            quantity: 1
-          });
-        }
-        console.log(cart);
-      });
+document.querySelectorAll('.js-add-to-cart')
+  .forEach((button) => {
+    button.addEventListener('click', () => {
+      
+    // Product name via data attraibute
+    const productId = button.dataset.productId;
+    
+    // Matching item var
+    let matchingItem;
+    
+    // Loop through each item in the cart and check if we have a matching item
+    cart.forEach((item) => {
+      if (productId === item.productId) {
+        matchingItem = item;
+      }
     });
+    
+    // Increase matching item quantity else add it to the cart
+    if (matchingItem) {
+      matchingItem.quantity ++;
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: 1
+      });
+    }
+
+    // Cart quantity
+    let cartQuantity = 0;
+
+    // Find and append each quantity
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
+    });
+
+    // Update cart quantity HTML
+    document.querySelector('.js-cart-quantity')
+      .innerHTML = cartQuantity;
+  });
+});
